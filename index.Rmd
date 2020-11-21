@@ -5,35 +5,17 @@ author:
   affiliation: UCL
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output: 
-  bookdown::html_document2:
-    figure_caption: yes
-    code_folding: hide
-    theme: spacelab
-    highlight: kate
-    df_print: paged
-    toc: true
-    toc_float: true
-    number_sections: true
+  html_document:
+    keep_md: true
 ---
 
 ```{r setup, include = FALSE}
 
 library(knitr)
 library(tidyverse)
-library(reactable)
-library(ggplot2)
 
 knitr::opts_chunk$set(echo = FALSE, message = FALSE)
 
-##### Set default print options for data.frame/reactable #####
-
-# register the default methods for print dfs/reactable
-registerS3method("knit_print", "data.frame", Rmdplate::knit_print_df)
-registerS3method("knit_print", "reactable", Rmdplate::knit_print_reactable)
-
-##### Set defaults for ggplots #####
-
-old_theme <- theme_set(ggpubr::theme_pubr())
 
 ```
 
@@ -78,9 +60,9 @@ Useful resources:
 ## States of R packages 
 
 - The structure of R packages is explained well [here](https://r-pkgs.org/package-structure-state.html).
-- 5 states: source, bundles, binary, installed, in-memory (Table \@ref(tab:package-states))
+- 5 states: source, bundles, binary, installed, in-memory
 
-```{r package-states, fig.cap = "package-states: Different states of R packages"}
+```{r package-states}
 
 tibble(state = 
          c("source", 
@@ -99,7 +81,7 @@ tibble(state =
 
 ## Structure of R packages
 
-R packages have several key components, which are shown below in figure \@ref(fig:key-components) taken from [here](https://github.com/lcolladotor/biocthis) and detailed in table \@ref(tab:key-components-desc). 
+R packages have several key components, which are shown in screenshot taken from [here](https://github.com/lcolladotor/biocthis) and detailed below. 
 
 ```{r key-components, fig.cap = "biocthis package structure"}
 
@@ -107,7 +89,7 @@ knitr::include_graphics("figures/biocthis_package_structure.png")
 
 ```
 
-```{r key-components-desc, fig.cap = "key-components-desc: Key components of R packages"}
+```{r key-components-desc}
 
 tibble(state = 
          c(".github", 
