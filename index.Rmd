@@ -6,6 +6,7 @@ author:
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output: 
   html_document:
+    df_print: kable
     keep_md: true
 ---
 
@@ -90,7 +91,7 @@ knitr::include_graphics("figures/biocthis_package_structure.png")
 
 ```{r key-components-desc}
 
-tibble(state = 
+tibble(file_or_directory = 
          c(".github", 
            "R", 
            "inst", 
