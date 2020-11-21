@@ -20,7 +20,8 @@ output:
 2.  What do R packages consist of?
 3.  Testing fundamentals. 
 4.  How to make Bioconductor-friendly packages using `biocthis`?
-5.  Practical run through - making your own `utils` package.
+5.  Package development workflow. 
+6.  Practical run through - making your own `utils` package.
 
 # Why make R/Bioconductor packages?
 
@@ -110,6 +111,8 @@ R packages have several key components, which are shown in screen-shot taken fro
 
 # How to make Bioconductor-friendly packages using `biocthis`?
 
+`usethis` and `biocthis` are convienient helper packages for developing R/bioconductor packages respectively. 
+
 ## usethis
 
 - [usethis](https://usethis.r-lib.org/) has a lot of functions to enable easy package development. 
@@ -121,9 +124,17 @@ R packages have several key components, which are shown in screen-shot taken fro
 
 ## biocthis
 
-- Builds upon `usethis` specifically for Bioconductor packages. 
-- 
+- Builds upon `usethis` specifically for Bioconductor packages: 
+    - Templates for creating `DESCRIPTION`, `README.md` and vignettes
+    - Styles using `BiocStyle`
+    - Sets up a GitHub action workflow on all 3 OS (including using the Bioconductor docker for Linux) that includes `R CMD Check` and `BiocCheck`. 
+    - Deploys a `pkgdown` page for your package. 
 - Still under active development. 
+
+# Package development workflow
+
+<img src="https://lucid.app/publicSegments/view/8fcef0de-1c16-477b-b471-beed1f01a57c/image.png" height="1000" style="display: block; margin: auto;" />
+
 
 # Reproducibility
 
