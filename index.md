@@ -13,7 +13,7 @@ output:
 
 > Aim: Give overview of principles behind and hands-on practice for developing Bioconductor-friendly packages using biocthis. 
 
-<br><br>
+<br>
 
 # Outline
 
@@ -45,7 +45,7 @@ Useful resources:
 - More citations - https://www.biorxiv.org/content/10.1101/2020.11.16.385211v1
 - CV/reputation points. 
 
-<br><br>
+<br>
 
 # What do R packages consist of?
 
@@ -90,7 +90,7 @@ R packages have several key components, which are shown in screenshot taken from
 ## 8 README      Read me documentation shown at the GitHub repository
 ```
 
-<br><br>
+<br>
 
 # Testing fundamentals
 
@@ -141,7 +141,7 @@ R packages have several key components, which are shown in screenshot taken from
 - `usethis::use_git()` - connects current package to git. 
 - `usethis::use_github()` - create a GitHub repo for current repo. 
 - `usethis::use_github_action()` - creates GHA skeleton
-- 
+
 
 ## biocthis
 

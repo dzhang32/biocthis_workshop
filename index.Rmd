@@ -16,12 +16,11 @@ library(tidyverse)
 
 knitr::opts_chunk$set(echo = FALSE, message = FALSE)
 
-
 ```
 
 > Aim: Give overview of principles behind and hands-on practice for developing Bioconductor-friendly packages using biocthis. 
 
-<br><br>
+<br>
 
 # Outline
 
@@ -53,7 +52,7 @@ Useful resources:
 - More citations - https://www.biorxiv.org/content/10.1101/2020.11.16.385211v1
 - CV/reputation points. 
 
-<br><br>
+<br>
 
 # What do R packages consist of?
 
@@ -112,7 +111,7 @@ tibble(state =
 
 ```
 
-<br><br>
+<br>
 
 # Testing fundamentals
 
@@ -163,7 +162,7 @@ tibble(state =
 - `usethis::use_git()` - connects current package to git. 
 - `usethis::use_github()` - create a GitHub repo for current repo. 
 - `usethis::use_github_action()` - creates GHA skeleton
-- 
+
 
 ## biocthis
 
