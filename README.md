@@ -1,6 +1,6 @@
 # Developing Bioconductor-friendly packages using biocthis
 
-This repository hosts the material for the \@rytenlab [biocthis](https://github.com/lcolladotor/biocthis) workshop.
+This repository hosts the material for the [Ryten lab](https://rytenlab.com/) [biocthis](https://github.com/lcolladotor/biocthis) workshop.
 
 # Acknowledgements
 
