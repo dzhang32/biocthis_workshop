@@ -23,18 +23,19 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE)
 
 # Outline
 
-1.  Why make R/Bioconductor packages?
-2.  What do R packages consist of?
-3.  Testing fundamentals. 
-4.  How to make Bioconductor-friendly packages using `biocthis`?
-5.  Package development workflow. 
-6.  Practical run through - making your own `utils` package.
+1. Why make R/Bioconductor packages?
+2. What do R packages consist of?
+3. Testing fundamentals. 
+4. How to make Bioconductor-friendly packages using `biocthis`?
+5. Package development workflow. 
+6. Resources - what is not covered?
+7. Hands on session - making your own `utils` package.
 
 # Why make R/Bioconductor packages?
 
 ## R packages
 
-- **Share** functions with others/yourself (with `git`). 
+- **Share** functions with others/yourself. 
 - Improving the **organization** of your functions - e.g. mentality, documentation, continuous updates. 
 - Integrated **unit testing** to keep your functions robust to future changes. 
 
@@ -99,12 +100,14 @@ knitr::include_graphics("figures/biocthis_package_structure.png")
 ## R CMD Check or BiocCheck
 
 - Reports `ERROR`/`WARNING`/`NOTE`s.
-- R CMD Check that your package meets certain criteria: 
+- `R CMD Check` that your package meets certain criteria: 
     - Runs all unit tests 
+    - Have you set all the dependencies you need?
     - Have you documented your functions?
     - Have you written a proper `DESCRIPTION`?
     - Have you used `:::`?
-- BiocCheck is more stringent:
+    - Lots more... see [R packages page on R CMD Check](https://r-pkgs.org/r-cmd-check.html)
+- `BiocCheck` is more stringent:
     - Are your functions less than 80 lines?
     - Do >80% have examples?
 
@@ -137,13 +140,22 @@ knitr::include_graphics("figures/biocthis_package_structure.png")
     - Styles using `BiocStyle`
     - Sets up a GitHub action workflow on all 3 OS (including using the Bioconductor docker for Linux) that includes `R CMD Check` and `BiocCheck`. 
     - Deploys a `pkgdown` page for your package. 
+    - Sets up code coverage check.  
 - Still under active development. 
 
 # Package development workflow
 
+A top-level workflow for modifying your package, then running tests and updating via `git` is shown below. 
+
 ```{r package-dev-workflow, out.height = 1000, fig.align = 'center'}
 knitr::include_graphics("https://lucid.app/publicSegments/view/8fcef0de-1c16-477b-b471-beed1f01a57c/image.png")
 ```
+
+# Resources - what hasn't been covered?
+
+- What makes good tests/documentation? Where should I put raw vs processed vs internal data? What else does R CMD Check check? The [R packages](https://r-pkgs.org/r-cmd-check.html) book is highly recommended. 
+- How to write your own GHA workflow? A good place to start with using GHA in R can be found [here](https://ropenscilabs.github.io/actions_sandbox/). 
+- Submission/maintenance of Bioconductor packages. Info regarding submissions can be found [here](https://www.bioconductor.org/developers/package-submission/) and maintaining packages [here](https://www.bioconductor.org/developers/how-to/git/). 
 
 # Reproducibility
 
