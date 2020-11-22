@@ -53,7 +53,7 @@ Useful resources:
 
 ## States of R packages 
 
-- The structure of R packages is explained well [here](https://r-pkgs.org/package-structure-state.html).
+- The states of R packages is explained well [here](https://r-pkgs.org/package-structure-state.html).
 - 5 states: 
     1. **source** - A set files/directories in a set structure. The state you develop with and encounter when cloning a repo.
     2. **bundles** - Source compressed into a single tar.gz (e.g. through `devtools::build()`)
@@ -125,11 +125,12 @@ knitr::include_graphics("figures/biocthis_package_structure.png")
 ## usethis
 
 - [usethis](https://usethis.r-lib.org/) has a lot of functions to enable easy package development. 
-    - `usethis::create_package()` - creates package skeleton
-    - `usethis::use_r()` - creates .R function skeleton
+    - `usethis::create_package()` - creates package skeleton.
+    - `usethis::use_r()` - creates .R function skeleton.
+    - `usethis::use_test()` - create test skeleton. 
     - `usethis::use_git()` - connects current package to git. 
     - `usethis::use_github()` - create a GitHub repo for current repo. 
-    - `usethis::use_github_action()` - creates GHA skeleton
+    - `usethis::use_github_action()` - creates GHA skeleton. 
 
 ## biocthis
 
