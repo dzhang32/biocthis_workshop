@@ -3,7 +3,7 @@ title: "Developing Bioconductor-friendly packages using biocthis"
 author: 
 - name: "David Zhang"
   affiliation: UCL
-date: "21 November 2020"
+date: "22 November 2020"
 output: 
   html_document:
     df_print: kable
@@ -12,22 +12,21 @@ output:
 
 
 
-> Aim: Give overview of principles behind and hands-on practice for developing Bioconductor-friendly packages using biocthis. 
-
 # Outline
 
-1.  Why make R/Bioconductor packages?
-2.  What do R packages consist of?
-3.  Testing fundamentals. 
-4.  How to make Bioconductor-friendly packages using `biocthis`?
-5.  Package development workflow. 
-6.  Practical run through - making your own `utils` package.
+1. Why make R/Bioconductor packages?
+2. What do R packages consist of?
+3. Testing fundamentals. 
+4. How to make Bioconductor-friendly packages using `biocthis`?
+5. Package development workflow. 
+6. Resources - what is not covered?
+7. Hands on session - making your own `utils` package.
 
 # Why make R/Bioconductor packages?
 
 ## R packages
 
-- **Share** functions with others/yourself (with `git`). 
+- **Share** functions with others/yourself. 
 - Improving the **organization** of your functions - e.g. mentality, documentation, continuous updates. 
 - Integrated **unit testing** to keep your functions robust to future changes. 
 
@@ -47,7 +46,7 @@ Useful resources:
 
 ## States of R packages 
 
-- The structure of R packages is explained well [here](https://r-pkgs.org/package-structure-state.html).
+- The states of R packages is explained well [here](https://r-pkgs.org/package-structure-state.html).
 - 5 states: 
     1. **source** - A set files/directories in a set structure. The state you develop with and encounter when cloning a repo.
     2. **bundles** - Source compressed into a single tar.gz (e.g. through `devtools::build()`)
@@ -91,12 +90,14 @@ R packages have several key components, which are shown in screen-shot taken fro
 ## R CMD Check or BiocCheck
 
 - Reports `ERROR`/`WARNING`/`NOTE`s.
-- R CMD Check that your package meets certain criteria: 
+- `R CMD Check` that your package meets certain criteria: 
     - Runs all unit tests 
+    - Have you set all the dependencies you need?
     - Have you documented your functions?
     - Have you written a proper `DESCRIPTION`?
     - Have you used `:::`?
-- BiocCheck is more stringent:
+    - Lots more... see [R packages page on R CMD Check](https://r-pkgs.org/r-cmd-check.html)
+- `BiocCheck` is more stringent:
     - Are your functions less than 80 lines?
     - Do >80% have examples?
 
@@ -111,16 +112,17 @@ R packages have several key components, which are shown in screen-shot taken fro
 
 # How to make Bioconductor-friendly packages using `biocthis`?
 
-`usethis` and `biocthis` are convienient helper packages for developing R/bioconductor packages respectively. 
+`usethis` and `biocthis` are convenient helper packages for developing R/bioconductor packages respectively.
 
 ## usethis
 
 - [usethis](https://usethis.r-lib.org/) has a lot of functions to enable easy package development. 
-    - `usethis::create_package()` - creates package skeleton
-    - `usethis::use_r()` - creates .R function skeleton
+    - `usethis::create_package()` - creates package skeleton.
+    - `usethis::use_r()` - creates .R function skeleton.
+    - `usethis::use_test()` - create test skeleton. 
     - `usethis::use_git()` - connects current package to git. 
     - `usethis::use_github()` - create a GitHub repo for current repo. 
-    - `usethis::use_github_action()` - creates GHA skeleton
+    - `usethis::use_github_action()` - creates GHA skeleton. 
 
 ## biocthis
 
@@ -129,12 +131,21 @@ R packages have several key components, which are shown in screen-shot taken fro
     - Styles using `BiocStyle`
     - Sets up a GitHub action workflow on all 3 OS (including using the Bioconductor docker for Linux) that includes `R CMD Check` and `BiocCheck`. 
     - Deploys a `pkgdown` page for your package. 
+    - Sets up code coverage check.  
 - Still under active development. 
 
 # Package development workflow
 
+A top-level workflow for modifying your package, then running tests and updating via `git` is shown below. 
+
 <img src="https://lucid.app/publicSegments/view/8fcef0de-1c16-477b-b471-beed1f01a57c/image.png" height="1000" style="display: block; margin: auto;" />
 
+# Resources - what hasn't been covered?
+
+- What makes good tests/documentation? Where should I put raw vs processed vs internal data? What else does R CMD Check check? The [R packages](https://r-pkgs.org/r-cmd-check.html) book is highly recommended. 
+- Testthat - [3rd edition](https://rstudio.com/resources/webinars/testthat-3/)
+- How to write your own GHA workflow? A good place to start with using GHA in R can be found [here](https://ropenscilabs.github.io/actions_sandbox/). 
+- Submission/maintenance of Bioconductor packages. Info regarding submissions can be found [here](https://www.bioconductor.org/developers/package-submission/) and maintaining packages [here](https://www.bioconductor.org/developers/how-to/git/). 
 
 # Reproducibility
 
@@ -150,7 +161,7 @@ R packages have several key components, which are shown in screen-shot taken fro
 ##  collate  en_GB.UTF-8                 
 ##  ctype    en_GB.UTF-8                 
 ##  tz       Europe/London               
-##  date     2020-11-21                  
+##  date     2020-11-22                  
 ## 
 ## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  package     * version    date       lib source                           

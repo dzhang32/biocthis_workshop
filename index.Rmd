@@ -120,7 +120,7 @@ knitr::include_graphics("figures/biocthis_package_structure.png")
 
 # How to make Bioconductor-friendly packages using `biocthis`?
 
-`usethis` and `biocthis` are convienient helper packages for developing R/bioconductor packages respectively. 
+`usethis` and `biocthis` are convenient helper packages for developing R/bioconductor packages respectively.
 
 ## usethis
 
@@ -153,6 +153,7 @@ knitr::include_graphics("https://lucid.app/publicSegments/view/8fcef0de-1c16-477
 # Resources - what hasn't been covered?
 
 - What makes good tests/documentation? Where should I put raw vs processed vs internal data? What else does R CMD Check check? The [R packages](https://r-pkgs.org/r-cmd-check.html) book is highly recommended. 
+- Testthat - [3rd edition](https://rstudio.com/resources/webinars/testthat-3/)
 - How to write your own GHA workflow? A good place to start with using GHA in R can be found [here](https://ropenscilabs.github.io/actions_sandbox/). 
 - Submission/maintenance of Bioconductor packages. Info regarding submissions can be found [here](https://www.bioconductor.org/developers/package-submission/) and maintaining packages [here](https://www.bioconductor.org/developers/how-to/git/). 
 
