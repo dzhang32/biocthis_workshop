@@ -12,6 +12,8 @@ output:
 
 
 
+> Note: install the development version of biocthis via `devtools::install_github("lcolladotor/biocthis")` and any additional dependencies. 
+
 # Outline
 
 1. Why make R/Bioconductor packages?
@@ -20,7 +22,7 @@ output:
 4. How to make Bioconductor-friendly packages using `biocthis`?
 5. Package development workflow. 
 6. Resources - what is not covered?
-7. Hands on session - making your own `utils` package.
+7. Making your own `utils` package (hands-on session).
 
 # Why make R/Bioconductor packages?
 
@@ -58,10 +60,7 @@ Useful resources:
 
 R packages have several key components, which are shown in screen-shot taken from [here](https://github.com/lcolladotor/biocthis) and detailed below. 
 
-<div class="figure">
-<img src="figures/biocthis_package_structure.png" alt="biocthis package structure" width="1848" />
-<p class="caption">biocthis package structure</p>
-</div>
+<img src="figures/biocthis_package_structure.png" width="1848" />
 1. **.github** - GitHub actions workflow.
 2. **R** - Contains all the code for the functions of your package.
 3. **inst** - Additional raw data you would like available to the user.
@@ -120,6 +119,7 @@ R packages have several key components, which are shown in screen-shot taken fro
     - `usethis::create_package()` - creates package skeleton.
     - `usethis::use_r()` - creates .R function skeleton.
     - `usethis::use_test()` - create test skeleton. 
+    - `usethis::use_package()` - add a dependency. 
     - `usethis::use_git()` - connects current package to git. 
     - `usethis::use_github()` - create a GitHub repo for current repo. 
     - `usethis::use_github_action()` - creates GHA skeleton. 
@@ -138,7 +138,7 @@ R packages have several key components, which are shown in screen-shot taken fro
 
 A top-level workflow for modifying your package, then running tests and updating via `git` is shown below. 
 
-<img src="https://lucid.app/publicSegments/view/8fcef0de-1c16-477b-b471-beed1f01a57c/image.png" height="1000" style="display: block; margin: auto;" />
+<img src="https://lucid.app/publicSegments/view/22dc40f9-49b9-47ef-b04c-9fae764bf492/image.png" height="1000" style="display: block; margin: auto;" />
 
 # Resources - what hasn't been covered?
 
@@ -146,6 +146,20 @@ A top-level workflow for modifying your package, then running tests and updating
 - Testthat - [3rd edition](https://rstudio.com/resources/webinars/testthat-3/)
 - How to write your own GHA workflow? A good place to start with using GHA in R can be found [here](https://ropenscilabs.github.io/actions_sandbox/). 
 - Submission/maintenance of Bioconductor packages. Info regarding submissions can be found [here](https://www.bioconductor.org/developers/package-submission/) and maintaining packages [here](https://www.bioconductor.org/developers/how-to/git/). 
+
+# Making your own `utils` package
+
+1. Create `bioutils` package skeleton with `usethis::create_package("~/bioutils")`.
+2. Create `dev/` folder with `biocthis` scripts using `biocthis::use_bioc_pkg_templates()`.
+3. Run `available::available("bioutils")` to check package name availability. 
+4. Run through `dev/02_git_github_setup.R` (adding GitHub PAT and ssh keys if not set up already). Check your initial skeleton has been pushed to GitHub repo. 
+5. Finishing setting up `dev/03_core_files.R`. You may need to install `knitcitations` from GitHub with `remotes::install_github("cboettig/knitcitations")`. You may also need to install your package via `devtools::install(".")` before running `pkgdown::deploy_to_branch()`. 
+6. `usethis::use_r("function_name")` - add your own function with documentation (EXAMPLE TO BE ADDED). 
+7. `usethis::use_test("function_name")` - add testing for your function (EXAMPLE TO BE ADDED). 
+8. Run unit tests via `devtools::test()`. 
+9. Run `04_update.R` to auto-style and document your code. 
+10. Run R CMD Check via `devtools::check()`. 
+11. If passed then push your changes to GitHub. Review `ERROR`/`WARNING`/`NOTES` then make any necessary changes (e.g. more `biocViews`) and update. 
 
 # Reproducibility
 
@@ -186,7 +200,6 @@ A top-level workflow for modifying your package, then running tests and updating
 ##  glue          1.4.2      2020-08-27 [1] CRAN (R 4.0.2)                   
 ##  gtable        0.3.0      2019-03-25 [1] CRAN (R 4.0.2)                   
 ##  haven         2.3.1      2020-06-01 [1] CRAN (R 4.0.2)                   
-##  highr         0.8        2019-03-20 [1] CRAN (R 4.0.2)                   
 ##  hms           0.5.3      2020-01-08 [1] CRAN (R 4.0.2)                   
 ##  htmltools     0.5.0      2020-06-16 [1] CRAN (R 4.0.2)                   
 ##  httr          1.4.2      2020-07-20 [1] CRAN (R 4.0.2)                   
