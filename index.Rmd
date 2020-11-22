@@ -19,8 +19,6 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE)
 
 ```
 
-> Aim: Give overview of principles behind and hands-on practice for developing Bioconductor-friendly packages using biocthis. 
-
 # Outline
 
 1. Why make R/Bioconductor packages?
