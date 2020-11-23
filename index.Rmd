@@ -167,7 +167,7 @@ knitr::include_graphics("https://lucid.app/publicSegments/view/22dc40f9-49b9-47e
 3. Run `available::available("bioutils")` to check package name availability. 
 4. Run through `dev/02_git_github_setup.R` (adding GitHub PAT and ssh keys if not set up already). Check your initial skeleton has been pushed to GitHub repo. 
 5. Finishing setting up `dev/03_core_files.R`. You may need to install `knitcitations` from GitHub with `remotes::install_github("cboettig/knitcitations")`. You may also need to install your package via `devtools::install(".")` before running `pkgdown::deploy_to_branch()`. 
-6. `usethis::use_r("function_name")` - add your own function with documentation (EXAMPLE TO BE ADDED). 
+6. `usethis::use_r("function_name")` - add your own function with documentation (EXAMPLE TO BE ADDED - sum stats tidy). 
 7. `usethis::use_test("function_name")` - add testing for your function (EXAMPLE TO BE ADDED). 
 8. Run unit tests via `devtools::test()`. 
 9. Run `04_update.R` to auto-style and document your code. 
