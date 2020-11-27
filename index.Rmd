@@ -29,7 +29,7 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE)
 4. Package development packages - `usethis`, `devtools` and `biocthis`. 
 5. Package development workflow. 
 6. Resources - what is not covered?
-7. Making your own Bioconductor-friendly `utils` package (hands-on session).
+7. Making your own Bioconductor-friendly package (hands-on session).
 
 # Why make R/Bioconductor packages?
 
@@ -174,11 +174,11 @@ knitr::include_graphics("https://lucid.app/publicSegments/view/22dc40f9-49b9-47e
 - Tidyverse [function design](https://design.tidyverse.org/index.html) and [styling](https://style.tidyverse.org/) guides.  
 - Submission/maintenance of Bioconductor packages. Info regarding submissions can be found [here](https://www.bioconductor.org/developers/package-submission/) and maintaining packages [here](https://www.bioconductor.org/developers/how-to/git/). 
 
-# Making your own Bioconductor-friendly `utils` package
+# Making your own Bioconductor-friendly package
 
-1. Create `bioutils` package skeleton with `usethis::create_package("~/bioutils")`.
+1. Create an R package skeleton with `usethis::create_package("path_to_package")`.
 2. Create `dev/` folder with `biocthis` scripts using `biocthis::use_bioc_pkg_templates()`.
-3. Run `available::available("bioutils")` to check package name availability. 
+3. Run `available::available("package_name")` to check package name availability. 
 4. Run through `dev/02_git_github_setup.R` (adding GitHub PAT and ssh keys if not set up already). Check your initial skeleton has been pushed to GitHub repo. 
 5. Finishing setting up `dev/03_core_files.R`. You may need to install `knitcitations` from GitHub with `remotes::install_github("cboettig/knitcitations")`. You may also need to install your package via `devtools::install(".")` before running `pkgdown::deploy_to_branch()`. 
 6. `usethis::use_r("function_name")` - add your own function with documentation: example function [get_sum_stats.R](https://github.com/dzhang32/rutils/blob/master/R/get_sum_stats.R).
