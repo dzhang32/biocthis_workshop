@@ -169,9 +169,9 @@ knitr::include_graphics("https://lucid.app/publicSegments/view/22dc40f9-49b9-47e
 # Resources - what hasn't been covered?
 
 - What makes good tests/documentation? Where should I put raw vs processed vs internal data? What else does `R CMD Check` check? The [R packages](https://r-pkgs.org/r-cmd-check.html) book is highly recommended. 
+- Writing `R` functions - good practices can be found in the [tidyverse design guide](https://design.tidyverse.org/structure.html). 
 - `testthat` - [3rd edition](https://rstudio.com/resources/webinars/testthat-3/)
 - How to write your own GHA workflow? A good place to start with using GHA in R can be found [here](https://ropenscilabs.github.io/actions_sandbox/). 
-- Tidyverse [function design](https://design.tidyverse.org/index.html) and [styling](https://style.tidyverse.org/) guides.  
 - Submission/maintenance of Bioconductor packages. Info regarding submissions can be found [here](https://www.bioconductor.org/developers/package-submission/) and maintaining packages [here](https://www.bioconductor.org/developers/how-to/git/). 
 
 # Making your own Bioconductor-friendly package

@@ -3,7 +3,7 @@ title: "Developing Bioconductor-friendly packages using biocthis"
 author: 
 - name: "David Zhang"
   affiliation: UCL
-date: "27 November 2020"
+date: "01 December 2020"
 output: 
   html_document:
     df_print: kable
@@ -156,9 +156,9 @@ A top-level workflow for modifying your package, then running tests and updating
 # Resources - what hasn't been covered?
 
 - What makes good tests/documentation? Where should I put raw vs processed vs internal data? What else does `R CMD Check` check? The [R packages](https://r-pkgs.org/r-cmd-check.html) book is highly recommended. 
+- Writing `R` functions - good practices can be found in the [tidyverse design guide](https://design.tidyverse.org/structure.html). 
 - `testthat` - [3rd edition](https://rstudio.com/resources/webinars/testthat-3/)
 - How to write your own GHA workflow? A good place to start with using GHA in R can be found [here](https://ropenscilabs.github.io/actions_sandbox/). 
-- Tidyverse [function design](https://design.tidyverse.org/index.html) and [styling](https://style.tidyverse.org/) guides.  
 - Submission/maintenance of Bioconductor packages. Info regarding submissions can be found [here](https://www.bioconductor.org/developers/package-submission/) and maintaining packages [here](https://www.bioconductor.org/developers/how-to/git/). 
 
 # Making your own Bioconductor-friendly package
@@ -189,7 +189,7 @@ A top-level workflow for modifying your package, then running tests and updating
 ##  collate  en_GB.UTF-8                 
 ##  ctype    en_GB.UTF-8                 
 ##  tz       Europe/London               
-##  date     2020-11-27                  
+##  date     2020-12-01                  
 ## 
 ## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  package     * version    date       lib source                           
