@@ -3,7 +3,7 @@ title: "Developing Bioconductor-friendly packages using biocthis"
 author: 
 - name: "David Zhang"
   affiliation: UCL
-date: "01 December 2020"
+date: "07 December 2020"
 output: 
   html_document:
     df_print: kable
@@ -21,8 +21,8 @@ output:
 3. Testing fundamentals. 
 4. Package development packages - `usethis`, `devtools` and `biocthis`. 
 5. Package development workflow. 
-6. Resources - what is not covered?
-7. Making your own Bioconductor-friendly package (hands-on session).
+6. Additional resources. 
+7. Making your own Bioconductor-friendly package.
 
 # Why make R/Bioconductor packages?
 
@@ -41,7 +41,7 @@ Useful resources:
 
 - **Share** code more widely with Bioconductor community. 
 - Code review, learning about developing software - forced compliance with Bioconductor standards. 
-- More citations - https://www.biorxiv.org/content/10.1101/2020.11.16.385211v1
+- [More citations](https://www.biorxiv.org/content/10.1101/2020.11.16.385211v1)
 - CV/reputation points. 
 
 # What do R packages consist of?
@@ -50,7 +50,7 @@ Useful resources:
 
 - The states of R packages is explained well [here](https://r-pkgs.org/package-structure-state.html).
 - 5 states: 
-    1. **source** - A set files/directories in a set structure. The state you develop with and encounter when cloning a repo.
+    1. **source** - A set files/directories in a set structure. The state you develop with and encounter when cloning a GitHub repository.
     2. **bundles** - Source compressed into a single tar.gz (e.g. through `devtools::build()`)
     3. **binary** - Binary version (e.g. distributed by CRAN). Can be generated through `devtools::build(binary = TRUE)`. 
     4. **installed** - Either the binary or bundle that's decompressed and placed into your R package library (using `install.packages()`)
@@ -58,9 +58,9 @@ Useful resources:
 
 ## Structure of R packages
 
-R packages have several key components, which are shown in screen-shot taken from [here](https://github.com/lcolladotor/biocthis) and detailed below. 
+R packages have several key components, which are shown in screen-shot taken from [the biocthis GitHub repository](https://github.com/lcolladotor/biocthis) below: 
 
-<img src="figures/biocthis_package_structure.png" width="1835" />
+![](figures/biocthis_package_structure.png)<!-- -->
 
 1. **.github** - GitHub actions workflow.
 2. **R** - Contains all the code for the functions of your package.
@@ -91,7 +91,6 @@ R packages have several key components, which are shown in screen-shot taken fro
 
 ## R CMD Check or BiocCheck
 
-- Reports `ERROR`/`WARNING`/`NOTE`s.
 - `R CMD Check` that your package meets certain criteria: 
     - Runs all unit tests 
     - Have you set all the dependencies you need?
@@ -102,15 +101,16 @@ R packages have several key components, which are shown in screen-shot taken fro
 - `BiocCheck` is more stringent:
     - Are your functions less than 80 lines?
     - Do >80% have examples?
+- Reports `ERROR`/`WARNING`/`NOTE`s.
 
 ## Testing across Linux/Mac/Windows
 
-- A great lecture on GHA basics from Jim Hester can be found [here](https://www.jimhester.com/talk/2020-rsc-github-actions/)
-- GitHub actions is used in this case for testing, but is very flexible
-- On an event, do something
-- Written in yet-another-markdown-language (YAML)
-- GitHub has "runners" based on Linux/Mac/Windows OS (and permits dockers)
-- We run R CMD Check and BioCheck on all 3 to catch OS-specific issues
+- A great lecture on GHA basics from Jim Hester can be found [here](https://www.jimhester.com/talk/2020-rsc-github-actions/).
+- GitHub actions is used in this case for testing, but is very flexible.
+- On an event, do something.
+- Written in yet-another-markdown-language (YAML).
+- GitHub has "runners" based on Linux/Mac/Windows OS (and permits dockers).
+- We run `R CMD Check` and `BiocCheck` on all 3 to check for OS-specific issues.
 
 # Package development packages
 
@@ -139,7 +139,7 @@ R packages have several key components, which are shown in screen-shot taken fro
     
 ## biocthis
 
-- [biocthis](https://github.com/lcolladotor/biocthis) builds upon `usethis` specifically for Bioconductor packages: 
+- [biocthis](https://github.com/lcolladotor/biocthis) extends `usethis` specifically for Bioconductor packages: 
     - Templates for creating `DESCRIPTION`, `README.md` and vignettes
     - Styles using `BiocStyle`
     - Sets up a GitHub action workflow on all 3 OS (including using the Bioconductor docker for Linux) that includes `R CMD Check` and `BiocCheck`. 
@@ -153,7 +153,7 @@ A top-level workflow for modifying your package, then running tests and updating
 
 <img src="https://lucid.app/publicSegments/view/22dc40f9-49b9-47ef-b04c-9fae764bf492/image.png" height="1000" style="display: block; margin: auto;" />
 
-# Resources - what hasn't been covered?
+# Additional resources
 
 - What makes good tests/documentation? Where should I put raw vs processed vs internal data? What else does `R CMD Check` check? The [R packages](https://r-pkgs.org/r-cmd-check.html) book is highly recommended. 
 - Writing `R` functions - good practices can be found in the [tidyverse design guide](https://design.tidyverse.org/structure.html). 
@@ -182,74 +182,73 @@ A top-level workflow for modifying your package, then running tests and updating
 ## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  setting  value                       
 ##  version  R version 4.0.3 (2020-10-10)
-##  os       macOS Catalina 10.15.7      
+##  os       macOS Big Sur 10.16         
 ##  system   x86_64, darwin17.0          
 ##  ui       X11                         
 ##  language (EN)                        
 ##  collate  en_GB.UTF-8                 
 ##  ctype    en_GB.UTF-8                 
 ##  tz       Europe/London               
-##  date     2020-12-01                  
+##  date     2020-12-07                  
 ## 
 ## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────
-##  package     * version    date       lib source                           
-##  assertthat    0.2.1      2019-03-21 [1] CRAN (R 4.0.2)                   
-##  backports     1.2.0      2020-11-02 [1] CRAN (R 4.0.3)                   
-##  broom         0.7.2      2020-10-20 [1] CRAN (R 4.0.2)                   
-##  cellranger    1.1.0      2016-07-27 [1] CRAN (R 4.0.2)                   
-##  cli           2.1.0      2020-10-12 [1] CRAN (R 4.0.2)                   
-##  colorspace    2.0-0      2020-11-11 [1] CRAN (R 4.0.3)                   
-##  crayon        1.3.4      2017-09-16 [1] CRAN (R 4.0.2)                   
-##  DBI           1.1.0      2019-12-15 [1] CRAN (R 4.0.2)                   
-##  dbplyr        2.0.0      2020-11-03 [1] CRAN (R 4.0.3)                   
-##  digest        0.6.27     2020-10-24 [1] CRAN (R 4.0.2)                   
-##  dplyr       * 1.0.2      2020-08-18 [1] CRAN (R 4.0.2)                   
-##  ellipsis      0.3.1      2020-05-15 [1] CRAN (R 4.0.2)                   
-##  evaluate      0.14       2019-05-28 [1] CRAN (R 4.0.1)                   
-##  fansi         0.4.1      2020-01-08 [1] CRAN (R 4.0.2)                   
-##  forcats     * 0.5.0      2020-03-01 [1] CRAN (R 4.0.2)                   
-##  fs            1.5.0      2020-07-31 [1] CRAN (R 4.0.2)                   
-##  generics      0.1.0      2020-10-31 [1] CRAN (R 4.0.2)                   
-##  ggplot2     * 3.3.2      2020-06-19 [1] CRAN (R 4.0.2)                   
-##  glue          1.4.2      2020-08-27 [1] CRAN (R 4.0.2)                   
-##  gtable        0.3.0      2019-03-25 [1] CRAN (R 4.0.2)                   
-##  haven         2.3.1      2020-06-01 [1] CRAN (R 4.0.2)                   
-##  hms           0.5.3      2020-01-08 [1] CRAN (R 4.0.2)                   
-##  htmltools     0.5.0      2020-06-16 [1] CRAN (R 4.0.2)                   
-##  httr          1.4.2      2020-07-20 [1] CRAN (R 4.0.2)                   
-##  jsonlite      1.7.1      2020-09-07 [1] CRAN (R 4.0.2)                   
-##  knitr       * 1.30       2020-09-22 [1] CRAN (R 4.0.2)                   
-##  lifecycle     0.2.0      2020-03-06 [1] CRAN (R 4.0.2)                   
-##  lubridate     1.7.9      2020-06-08 [1] CRAN (R 4.0.2)                   
-##  magrittr      1.5        2014-11-22 [1] CRAN (R 4.0.2)                   
-##  modelr        0.1.8      2020-05-19 [1] CRAN (R 4.0.2)                   
-##  munsell       0.5.0      2018-06-12 [1] CRAN (R 4.0.2)                   
-##  pillar        1.4.6      2020-07-10 [1] CRAN (R 4.0.2)                   
-##  pkgconfig     2.0.3      2019-09-22 [1] CRAN (R 4.0.2)                   
-##  png           0.1-7      2013-12-03 [1] CRAN (R 4.0.2)                   
-##  purrr       * 0.3.4      2020-04-17 [1] CRAN (R 4.0.2)                   
-##  R6            2.5.0      2020-10-28 [1] CRAN (R 4.0.2)                   
-##  Rcpp          1.0.5      2020-07-06 [1] CRAN (R 4.0.2)                   
-##  readr       * 1.4.0      2020-10-05 [1] CRAN (R 4.0.2)                   
-##  readxl        1.3.1      2019-03-13 [1] CRAN (R 4.0.2)                   
-##  reprex        0.3.0.9001 2020-11-02 [1] Github (tidyverse/reprex@d3fc4b8)
-##  rlang         0.4.8      2020-10-08 [1] CRAN (R 4.0.2)                   
-##  rmarkdown     2.5        2020-10-21 [1] CRAN (R 4.0.2)                   
-##  rstudioapi    0.12       2020-11-10 [1] CRAN (R 4.0.3)                   
-##  rvest         0.3.6      2020-07-25 [1] CRAN (R 4.0.2)                   
-##  scales        1.1.1      2020-05-11 [1] CRAN (R 4.0.2)                   
-##  sessioninfo * 1.1.1      2018-11-05 [1] CRAN (R 4.0.2)                   
-##  stringi       1.5.3      2020-09-09 [1] CRAN (R 4.0.2)                   
-##  stringr     * 1.4.0      2019-02-10 [1] CRAN (R 4.0.2)                   
-##  tibble      * 3.0.4      2020-10-12 [1] CRAN (R 4.0.2)                   
-##  tidyr       * 1.1.2      2020-08-27 [1] CRAN (R 4.0.2)                   
-##  tidyselect    1.1.0      2020-05-11 [1] CRAN (R 4.0.2)                   
-##  tidyverse   * 1.3.0      2019-11-21 [1] CRAN (R 4.0.2)                   
-##  vctrs         0.3.4      2020-08-29 [1] CRAN (R 4.0.2)                   
-##  withr         2.3.0      2020-09-22 [1] CRAN (R 4.0.2)                   
-##  xfun          0.19       2020-10-30 [1] CRAN (R 4.0.2)                   
-##  xml2          1.3.2      2020-04-23 [1] CRAN (R 4.0.2)                   
-##  yaml          2.2.1      2020-02-01 [1] CRAN (R 4.0.2)                   
+##  package     * version date       lib source        
+##  assertthat    0.2.1   2019-03-21 [1] CRAN (R 4.0.2)
+##  backports     1.2.0   2020-11-02 [1] CRAN (R 4.0.2)
+##  broom         0.7.2   2020-10-20 [1] CRAN (R 4.0.2)
+##  cellranger    1.1.0   2016-07-27 [1] CRAN (R 4.0.2)
+##  cli           2.2.0   2020-11-20 [1] CRAN (R 4.0.2)
+##  colorspace    2.0-0   2020-11-11 [1] CRAN (R 4.0.2)
+##  crayon        1.3.4   2017-09-16 [1] CRAN (R 4.0.2)
+##  DBI           1.1.0   2019-12-15 [1] CRAN (R 4.0.2)
+##  dbplyr        2.0.0   2020-11-03 [1] CRAN (R 4.0.2)
+##  digest        0.6.27  2020-10-24 [1] CRAN (R 4.0.2)
+##  dplyr       * 1.0.2   2020-08-18 [1] CRAN (R 4.0.2)
+##  ellipsis      0.3.1   2020-05-15 [1] CRAN (R 4.0.2)
+##  evaluate      0.14    2019-05-28 [1] CRAN (R 4.0.1)
+##  fansi         0.4.1   2020-01-08 [1] CRAN (R 4.0.2)
+##  forcats     * 0.5.0   2020-03-01 [1] CRAN (R 4.0.2)
+##  fs            1.5.0   2020-07-31 [1] CRAN (R 4.0.2)
+##  generics      0.1.0   2020-10-31 [1] CRAN (R 4.0.2)
+##  ggplot2     * 3.3.2   2020-06-19 [1] CRAN (R 4.0.2)
+##  glue          1.4.2   2020-08-27 [1] CRAN (R 4.0.2)
+##  gtable        0.3.0   2019-03-25 [1] CRAN (R 4.0.2)
+##  haven         2.3.1   2020-06-01 [1] CRAN (R 4.0.2)
+##  hms           0.5.3   2020-01-08 [1] CRAN (R 4.0.2)
+##  htmltools     0.5.0   2020-06-16 [1] CRAN (R 4.0.2)
+##  httr          1.4.2   2020-07-20 [1] CRAN (R 4.0.2)
+##  jsonlite      1.7.1   2020-09-07 [1] CRAN (R 4.0.2)
+##  knitr       * 1.30    2020-09-22 [1] CRAN (R 4.0.2)
+##  lifecycle     0.2.0   2020-03-06 [1] CRAN (R 4.0.2)
+##  lubridate     1.7.9.2 2020-11-13 [1] CRAN (R 4.0.2)
+##  magrittr      2.0.1   2020-11-17 [1] CRAN (R 4.0.2)
+##  modelr        0.1.8   2020-05-19 [1] CRAN (R 4.0.2)
+##  munsell       0.5.0   2018-06-12 [1] CRAN (R 4.0.2)
+##  pillar        1.4.7   2020-11-20 [1] CRAN (R 4.0.2)
+##  pkgconfig     2.0.3   2019-09-22 [1] CRAN (R 4.0.2)
+##  purrr       * 0.3.4   2020-04-17 [1] CRAN (R 4.0.2)
+##  R6            2.5.0   2020-10-28 [1] CRAN (R 4.0.2)
+##  Rcpp          1.0.5   2020-07-06 [1] CRAN (R 4.0.2)
+##  readr       * 1.4.0   2020-10-05 [1] CRAN (R 4.0.2)
+##  readxl        1.3.1   2019-03-13 [1] CRAN (R 4.0.2)
+##  reprex        0.3.0   2019-05-16 [1] CRAN (R 4.0.2)
+##  rlang         0.4.9   2020-11-26 [1] CRAN (R 4.0.2)
+##  rmarkdown     2.5     2020-10-21 [1] CRAN (R 4.0.3)
+##  rstudioapi    0.13    2020-11-12 [1] CRAN (R 4.0.2)
+##  rvest         0.3.6   2020-07-25 [1] CRAN (R 4.0.2)
+##  scales        1.1.1   2020-05-11 [1] CRAN (R 4.0.2)
+##  sessioninfo * 1.1.1   2018-11-05 [1] CRAN (R 4.0.2)
+##  stringi       1.5.3   2020-09-09 [1] CRAN (R 4.0.2)
+##  stringr     * 1.4.0   2019-02-10 [1] CRAN (R 4.0.2)
+##  tibble      * 3.0.4   2020-10-12 [1] CRAN (R 4.0.2)
+##  tidyr       * 1.1.2   2020-08-27 [1] CRAN (R 4.0.2)
+##  tidyselect    1.1.0   2020-05-11 [1] CRAN (R 4.0.2)
+##  tidyverse   * 1.3.0   2019-11-21 [1] CRAN (R 4.0.2)
+##  vctrs         0.3.5   2020-11-17 [1] CRAN (R 4.0.2)
+##  withr         2.3.0   2020-09-22 [1] CRAN (R 4.0.2)
+##  xfun          0.19    2020-10-30 [1] CRAN (R 4.0.2)
+##  xml2          1.3.2   2020-04-23 [1] CRAN (R 4.0.2)
+##  yaml          2.2.1   2020-02-01 [1] CRAN (R 4.0.2)
 ## 
 ## [1] /Library/Frameworks/R.framework/Versions/4.0/Resources/library
 ```
