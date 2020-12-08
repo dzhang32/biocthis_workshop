@@ -181,7 +181,7 @@ knitr::include_graphics("https://lucid.app/publicSegments/view/22dc40f9-49b9-47e
 3. Run `available::available("package_name")` to check package name availability. 
 4. Run through `dev/02_git_github_setup.R` (adding GitHub PAT and ssh keys if not set up already). Check your initial skeleton has been pushed to GitHub repo. 
 5. Finishing setting up `dev/03_core_files.R`. You may need to install `knitcitations` from GitHub with `remotes::install_github("cboettig/knitcitations")`. You may also need to install your package via `devtools::install(".")` before running `pkgdown::deploy_to_branch()`. 
-6. `usethis::use_r("function_name")` - add your own function with documentation: example function [get_sum_stats.R](https://github.com/dzhang32/rutils/blob/master/R/get_sum_stats.R).
+6. `usethis::use_r("function_name")` - add your own function with documentation and dependencies via `usethis::use_package("package_name")`: example function [get_sum_stats.R](https://github.com/dzhang32/rutils/blob/master/R/get_sum_stats.R).
 7. `usethis::use_test("function_name")` - add testing for your function: example tests [test-get_sum_stats.R](https://github.com/dzhang32/rutils/blob/master/tests/testthat/test-get_sum_stats.R).
 8. Run unit tests via `devtools::test()`. 
 9. Run `04_update.R` to auto-style and document your code. 
