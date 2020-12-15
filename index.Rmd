@@ -173,6 +173,7 @@ knitr::include_graphics("https://lucid.app/publicSegments/view/22dc40f9-49b9-47e
 - `testthat` - [3rd edition](https://rstudio.com/resources/webinars/testthat-3/)
 - How to write your own GHA workflow? A good place to start with using GHA in R can be found [here](https://ropenscilabs.github.io/actions_sandbox/). 
 - Submission/maintenance of Bioconductor packages. Info regarding submissions can be found [here](https://www.bioconductor.org/developers/package-submission/) and maintaining packages [here](https://www.bioconductor.org/developers/how-to/git/). 
+- An alternative making Bioconductor packages workshop can be found [here](https://saskiafreytag.github.io/making_bioconductor_pkg/articles/workshop.html). This covers in detail additional topics such as submitting your package to Bioconductor. 
 
 # Making your own Bioconductor-friendly package
 

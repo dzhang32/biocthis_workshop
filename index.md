@@ -3,7 +3,7 @@ title: "Developing Bioconductor-friendly packages using biocthis"
 author: 
 - name: "David Zhang"
   affiliation: UCL
-date: "07 December 2020"
+date: "15 December 2020"
 output: 
   html_document:
     df_print: kable
@@ -160,6 +160,7 @@ A top-level workflow for modifying your package, then running tests and updating
 - `testthat` - [3rd edition](https://rstudio.com/resources/webinars/testthat-3/)
 - How to write your own GHA workflow? A good place to start with using GHA in R can be found [here](https://ropenscilabs.github.io/actions_sandbox/). 
 - Submission/maintenance of Bioconductor packages. Info regarding submissions can be found [here](https://www.bioconductor.org/developers/package-submission/) and maintaining packages [here](https://www.bioconductor.org/developers/how-to/git/). 
+- An alternative making Bioconductor packages workshop can be found [here](https://saskiafreytag.github.io/making_bioconductor_pkg/articles/workshop.html). This covers in detail additional topics such as submitting your package to Bioconductor. 
 
 # Making your own Bioconductor-friendly package
 
@@ -168,7 +169,7 @@ A top-level workflow for modifying your package, then running tests and updating
 3. Run `available::available("package_name")` to check package name availability. 
 4. Run through `dev/02_git_github_setup.R` (adding GitHub PAT and ssh keys if not set up already). Check your initial skeleton has been pushed to GitHub repo. 
 5. Finishing setting up `dev/03_core_files.R`. You may need to install `knitcitations` from GitHub with `remotes::install_github("cboettig/knitcitations")`. You may also need to install your package via `devtools::install(".")` before running `pkgdown::deploy_to_branch()`. 
-6. `usethis::use_r("function_name")` - add your own function with documentation: example function [get_sum_stats.R](https://github.com/dzhang32/rutils/blob/master/R/get_sum_stats.R).
+6. `usethis::use_r("function_name")` - add your own function with documentation and dependencies via `usethis::use_package("package_name")`: example function [get_sum_stats.R](https://github.com/dzhang32/rutils/blob/master/R/get_sum_stats.R).
 7. `usethis::use_test("function_name")` - add testing for your function: example tests [test-get_sum_stats.R](https://github.com/dzhang32/rutils/blob/master/tests/testthat/test-get_sum_stats.R).
 8. Run unit tests via `devtools::test()`. 
 9. Run `04_update.R` to auto-style and document your code. 
@@ -189,7 +190,7 @@ A top-level workflow for modifying your package, then running tests and updating
 ##  collate  en_GB.UTF-8                 
 ##  ctype    en_GB.UTF-8                 
 ##  tz       Europe/London               
-##  date     2020-12-07                  
+##  date     2020-12-15                  
 ## 
 ## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  package     * version date       lib source        
