@@ -6,7 +6,7 @@ This repository hosts the material for the [Ryten lab](https://rytenlab.com/) [b
 
 -   A solid foundation in `R` and understanding of how to create your own functions.
 
--   An installation of the latest `biocthis` development version and it's dependencies via the code below, preferably on R v4.0 or above.
+-   An installation of the latest `biocthis` development version and it's dependencies via the code below on R v4.0 or above.
 
 ``` r
 if (!requireNamespace("remotes", quietly = TRUE)) {
